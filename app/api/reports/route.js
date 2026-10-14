@@ -15,7 +15,9 @@ export async function POST(request) {
   }
   const declaredSize = Number(request.headers.get("content-length") || 0);
   if (declaredSize > MAX_BYTES) return json({ error: "리포트가 너무 큽니다." }, 413);
-  if (!process.env.BLOB_READ_WRITE_TOKEN) return json({ error: "저장소가 준비되지 않았습니다." }, 503);
+  if (!process.env.BLOB_READ_WRITE_TOKEN && !process.env.BLOB_STORE_ID) {
+    return json({ error: "저장소가 준비되지 않았습니다." }, 503);
+  }
 
   const text = await request.text();
   if (new TextEncoder().encode(text).byteLength > MAX_BYTES) return json({ error: "리포트가 너무 큽니다." }, 413);
