@@ -11,6 +11,7 @@ if (!response.ok) {
     : "리포트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
 } else {
   const report = await response.json();
-  root.replaceChildren();
-  dom().createRoot(root).render(react().createElement(View, { report }));
+  dom().hydrateRoot(root, react().createElement(View, { report }), {
+    onRecoverableError: () => {},
+  });
 }
