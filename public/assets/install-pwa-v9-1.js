@@ -4,6 +4,20 @@ let installPrompt = null;
 
 if (button && !standalone) button.hidden = false;
 
+const dockButton = () => {
+  const actions = document.querySelector(".top-actions");
+  if (!button || !actions || button.parentElement === actions) return;
+  button.classList.add("is-docked");
+  actions.prepend(button);
+};
+
+dockButton();
+const observer = new MutationObserver(dockButton);
+observer.observe(document.getElementById("report-root") || document.body, {
+  childList: true,
+  subtree: true,
+});
+
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   installPrompt = event;
