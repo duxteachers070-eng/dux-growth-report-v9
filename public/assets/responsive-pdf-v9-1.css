@@ -1,6 +1,24 @@
 /* v9.1: stable mobile reading and fixed A4 PDF composition. */
 *, *::before, *::after { box-sizing: border-box; }
 
+.pwa-install-button {
+  position: fixed;
+  z-index: 45;
+  top: 80px;
+  right: 18px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #b21f35;
+  box-shadow: 0 8px 22px rgba(74, 20, 30, .24);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pwa-install-button[hidden] { display: none !important; }
+
 @media (max-width: 820px) {
   html, body, #report-root, .parent-site, .workspace, .report-preview, .public-preview {
     max-width: 100%;
@@ -43,6 +61,15 @@
   .page-footer {
     flex-wrap: wrap;
     gap: 6px 12px;
+  }
+
+  .pwa-install-button {
+    top: auto;
+    right: 14px;
+    bottom: 14px;
+    min-height: 48px;
+    padding: 12px 18px;
+    font-size: 15px;
   }
 }
 
