@@ -1,4 +1,4 @@
-const CACHE_NAME = "dux-growth-report-v9-pwa-2";
+const CACHE_NAME = "dux-growth-report-v9-pwa-3";
 const APP_SHELL = [
   "/",
   "/teacher.html",

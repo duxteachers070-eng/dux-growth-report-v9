@@ -4,7 +4,6 @@ const nextConfig = {
     return {
       beforeFiles: [
         { source: "/", destination: "/teacher.html" },
-        { source: "/r/:id", destination: "/parent.html" },
       ],
     };
   },
